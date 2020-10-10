@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-{% load static %}
-<html>
-    <head>
-        <meta charset='utf-8'>
-        <meta http-equiv="Pragma" content="no-cache">
-        <meta http-equiv="Cache-Control" content="no-cache">
-        <title>生産管理データベース</title>
-        <link rel='stylesheet' href="{% static 'css/index.css' %}">
-    </head>
-    <body>
-        
-    </body>
-</html>
+{% extends 'pc_app/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                <p>published: {{ post.published_date }}</p>
+            </div>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
